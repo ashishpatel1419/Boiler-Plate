@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+
+<body>
+    <center>
+        <table border="1" bordercolor="red" cellspacing="0" cellpadding="30">
+            <h1>Login</h1>
+            <tr>
+                <td>
+                    
+                    <form action="/api/login" method="post">
+                        <div>
+                            <label>
+                                <b>Email:</b>
+                            </label><br>
+                            <input type="Email" name="email" placeholder="Enter Your Email Id">
+                            <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error1 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label>
+                                <b>Possword:</b>
+                            </label><br>
+                            <input type="password" name="password" placeholder="Enter Your Possword">
+                            <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error2 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <a style="padding-left: 80px;" href="/forgetPass"><small>forget password?</small></a>
+                        </div><br>
+                        <div>
+                            <button type="submit">Log in</button>
+                            <button ><a href="/singup">New Registration</a></button>                           
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

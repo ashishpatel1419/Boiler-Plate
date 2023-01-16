@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <title>Update Profile</title>
+    <style>
+        body {
+            background-color: #f1f1f1 !important;
+        }
+
+        .form-holder {
+            margin-top: 20%;
+            margin-bottom: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card form-holder">
+                <form action="/editProfile" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <a href="/profile"><box-icon type='solid' name='left-arrow'></box-icon></a>
+                        <h3 style="text-align: center;">Update Profile</h3>
+                        <div>
+                            <label><b>First Name</b></label><br>
+                            <input type="text" name="fname" placeholder="Enter Your Name" value="<%= user.fname%>">
+                            <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error1 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Last name</b></label><br>
+                            <input type="text" name="lname" placeholder="Enter Your Last Name" value="<%= user.lname%>">
+                            <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error2 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Gender:</b></label><br>
+                        <input type="radio" id="gender" name="gender" value="Male" <%=user.gender ? 'checked' :'' %>>&nbsp;Male
+                        <input class="ml-4" type="radio" id="gender" name="gender" value="Female" <%=user.gender? 'checked' :'' %>>&nbsp;Female
+                        </div><br>
+                        <% if (typeof error3 !=='undefined' && error3.length> 0) { %>
+                            <div style="color: red;">
+                                <%= error3 %>
+                            </div>
+                            <% } %>
+                        <div>
+                            <!-- <%=user.hobby %> -->
+                            <%=user.hobby %>
+                            <label><b>Hobby:</b></label><br>
+
+                            <input type="checkbox" value="Dancing" name="hobby" <%=user.hobby== "Dancing" ? 'checked' :'' %>>Dancing
+                            <input type="checkbox" value="Reading" name="hobby" <%=user.hobby== "Reading" ? 'checked' :'' %>>Reading
+                            <input type="checkbox" value="Travelling" name="hobby" <%=user.hobby=="Travelling" ? 'checked' :'' %>>Travelling<br>
+                            <input type="checkbox" value="Indoor game" name="hobby" <%=user.hobby=="Indoor game" ? 'checked' :'' %>>Indoor game
+                            <input type="checkbox" value="music" name="hobby" <%=user.hobby=="music" ? 'checked' :'' %>>music
+                            <input type="checkbox" value="Bike riding" name="hobby" <%=user.hobby=="Bike riding" ? 'checked' :'' %>>Bike riding <br>
+                            <% if (typeof error4 !=='undefined' && error4.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error4 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Mobile:</b></label><br>
+                            <input type="text" name="mobileno" placeholder="Enter Your Mobile Number" value="<%= user.mobileno%>">
+                            <% if (typeof error5 !=='undefined' && error5.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error5 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Email:</b></label><br>
+                            <input type="Email" name="email" placeholder="Enter Your Email Id" value="<%= user.email%>"> <br>
+                            <% if (typeof error6 !=='undefined' && error6.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error6 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                            <label><b>City:</b></label><br>
+                            <select name="city">
+                                <option>--None--</option>
+                                <option value="Ahemdabad" <%=user.city=="Ahemdabad" ? 'selected' :'' %>>Ahemdabad</option>
+                                <option value="Rajkot" <%=user.city=="Rajkot" ? 'selected' :'' %>>Rajkot</option>
+                                <option value="Rurat" <%=user.city=="Rurat" ? 'selected' :'' %>>Rurat</option>
+                                <option value="Surendranagar" <%=user.city=="Surendranagar" ? 'selected' :'' %>>Surendranagar</option>
+                                <option value="Morbi" <%=user.city=="Morbi" ? 'selected' :'' %>>Morbi</option>
+                                <option value="Bhavnagar" <%=user.city=="Bhavnagar" ? 'selected' :'' %>>Bhavnagar</option>
+                                <option value="Jamnagar" <%=user.city=="Jamnagar" ? 'selected' :'' %>>Jamnagar</option>
+                                <option value="Junagadh" <%=user.city=="Junagadh" ? 'selected' :'' %>>Junagadh</option>
+                            </select>
+                            <% if (typeof error7 !=='undefined' && error7.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error7 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Images:</b></label><br>
+                            <img src="<%= user.uploadImage%>" alt="Admin" class="rounded-circle" width="150"><br>
+                            <input type="file" name="uploadImage"><br><br>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <input type="submit" class="btn btn-primary" value="Update" />
+                                <a href="/profile" class="btn btn-danger">Cancel</a>
+
+                            </div>
+                        </div>
+                </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

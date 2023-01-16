@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verify OTP</title>
+</head>
+
+<body>
+    <center>
+        <h1>OTP Verification </h1>
+        <table border="1" bordercolor="red" cellspacing="0" cellpadding="20">
+            <tr>
+                <td>
+                    <form action="/verifyOtp" method="post">
+                            <input type="hidden" name="email" value="<%= email %>">
+                        <div>
+                            <label>
+                                <b>OTP:</b>
+                            </label><br>
+                            <input type="text" size="6" name="otp" placeholder="Enter OTP"  >
+                        </div><br>
+                        <div>
+                            <center>
+                                <button>Verify OTP</button>
+                                <button <a href="/">>Cencel</a></button>
+                            </center>
+                        </div><br>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

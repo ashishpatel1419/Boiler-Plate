@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+</head>
+
+<body>
+    <center>
+        <table border="1" bordercolor="red" cellspacing="0" cellpadding="20">
+        <form action="/api/register" method="post" enctype="multipart/form-data">
+                <h1>Registration Form</h1>
+                <tr>
+                    <td>
+                        <div>
+                            <label><b>Name</b></label><br>
+                            <input type="text" name="fname" placeholder="Enter Your Name">
+                            <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error1 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Last name</b></label><br>
+                            <input type="text" name="lname" placeholder="Enter Your Last Name">
+                            <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error2 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Gender:</b></label><br>
+                            <input type="radio" name="gender">Male
+                            <input type="radio" name="gender">Female
+                            <input type="radio" name="gender">Others <br>
+                            <% if (typeof error3 !=='undefined' && error3.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error3 %>
+                                </div>
+                                <% } %>
+
+                        </div><br>
+                        <div>
+                            <label><b>Hobby:</b></label><br>
+                            <input type="checkbox" value="Dancing" name="hobby">Dancing
+                            <input type="checkbox" value="Reading" name="hobby">Reading
+                            <input type="checkbox" value="Travelling" name="hobby">Travelling<br>
+                            <input type="checkbox" value="Indoor game" name="hobby">Indoor game
+                            <input type="checkbox" value="music" name="hobby">music
+                            <input type="checkbox" value="Bike riding" name="hobby">Bike riding <br>
+                            <% if (typeof error4 !=='undefined' && error4.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error4 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Mobile:</b></label><br>
+                            <input type="text" name="mobileno" placeholder="Enter Your Mobile Number">
+                            <% if (typeof error5 !=='undefined' && error5.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error5 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Email:</b></label><br>
+                            <input type="Email" name="email" placeholder="Enter Your Email Id">
+                            <% if (typeof error6 !=='undefined' && error6.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error6 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Password:</b></label><br>
+                            <input type="password" name="password" placeholder="Enter Your Possword">
+                            <% if (typeof error7 !=='undefined' && error7.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error7 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Confirm Possword:</b></label><br>
+                            <input type="password" name="cpassword" placeholder="Confirm Possword">
+                            <% if (typeof error8 !=='undefined' && error8.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error8 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>City:</b></label><br>
+                            <select name="city">
+                                <option>--None--</option>
+                                <option>Ahemdabad</option>
+                                <option>Rajkot</option>
+                                <option>Rurat</option>
+                                <option>Surendranagar</option>
+                                <option>Morbi</option>
+                                <option>Bhavnagar</option>
+                                <option>Jamnagar</option>
+                                <option>Junagadh</option>
+                            </select> <br>
+                            <% if (typeof error9 !=='undefined' && error9.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error9 %>
+                                </div>
+                                <% } %>
+                        </div><br>
+                        <div>
+                            <label><b>Images:</b></label><br>
+                            <input type="file" name="uploadImage">
+                            <% if (typeof error10 !=='undefined' && error10.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error10 %>
+                                </div>
+                                <% } %>
+                                <br><br>
+                        </div><br>
+                        <div>
+                            <button type="submit">Submit</button><br>
+                            <br>
+                            Already Account<a href="/" class="btn btn-link">Sign In</a>
+                        </div>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </center>
+</body>
+
+</html>
